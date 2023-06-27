@@ -10,6 +10,7 @@ class Caneta:
     def __init__(self, cor):
         #private protected # não use isso fora da classe
         self._cor = cor
+        self._cor_tampa = None
 
     @property #obter o valor
     def cor(self):
@@ -23,9 +24,13 @@ class Caneta:
             raise ValueError('Não aceito essa cor')
         self._cor = valor
 
-    
+    @property
     def cor_tampa(self):
-        ...
+        return self._cor_tampa
+    
+    @cor_tampa.setter
+    def cor_tampa(self, valor):
+        self._cor_tampa = valor
 
 
 ######################################
@@ -36,5 +41,9 @@ caneta = Caneta('Azul')
 caneta.cor = 'Pink'
 #getter - > obter valor
 print(caneta.cor)
+print("-=" * 25)
+print(caneta.cor_tampa)
+caneta.cor_tampa = 'Laranja'
+print(caneta.cor_tampa)
 
 
